@@ -41,32 +41,40 @@ namespace map
 
         }
 
+
+
+
+        static void mapBasic()
+        {
+            int cnt = 1;
+            var map = new Dictionary<string, KeyValuePair<int,int>>(); // name , roll , id
+
+            int n = Convert.ToInt32(Console.ReadLine());
+            for(int i=0; i<n; i++)
+            {
+               string name = Convert.ToString(Console.ReadLine());
+               int roll = Convert.ToInt32(Console.ReadLine());
+
+               if (!map.ContainsKey(name)) // key na thakle 
+                   map.Add(name, new KeyValuePair<int, int>(roll, cnt++));
+            }
+
+            Console.WriteLine("how many operation do you want?");
+            int tot = Convert.ToInt32(Console.ReadLine());
+            while(tot-->=1)
+            {
+               string k = Convert.ToString(Console.ReadLine());
+               if (map.ContainsKey(k))
+               {
+                   Console.WriteLine(map[k].Key);
+                   Console.WriteLine(map[k].Value);
+               }
+            }
+        }
+
         static void Main(string[] args)
         {
-            //int cnt = 1;
-            //var map = new Dictionary<string, KeyValuePair<int,int>>(); // name , roll , id
-
-            //int n = Convert.ToInt32(Console.ReadLine());
-            //for(int i=0; i<n; i++)
-            //{
-            //    string name = Convert.ToString(Console.ReadLine());
-            //    int roll = Convert.ToInt32(Console.ReadLine());
-
-            //    if (!map.ContainsKey(name)) // key na thakle 
-            //        map.Add(name, new KeyValuePair<int, int>(roll, cnt++));
-            //}
-
-            //Console.WriteLine("how many operation do you want?");
-            //int tot = Convert.ToInt32(Console.ReadLine());
-            //while(tot-->=1)
-            //{
-            //    string k = Convert.ToString(Console.ReadLine());
-            //    if (map.ContainsKey(k))
-            //    {
-            //        Console.WriteLine(map[k].Key);
-            //        Console.WriteLine(map[k].Value);
-            //    }
-            //}
+            //mapBasic() ;
             MapwithList();
 
 
